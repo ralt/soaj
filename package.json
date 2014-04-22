@@ -1,0 +1,21 @@
+{
+  "name": "soaj",
+  "version": "0.0.0",
+  "description": "SOA in Javascript",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Ralt/soaj"
+  },
+  "author": "Florian Margaine <florian@margaine.com>",
+  "license": "MIT License",
+  "bugs": {
+    "url": "https://github.com/Ralt/soaj/issues"
+  },
+  "dependencies": {
+    "posix-getopt": "~1.0.0"
+  }
+}
