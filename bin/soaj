@@ -1,12 +1,16 @@
+#!/usr/bin/env node
+
 'use strict';
 
 var mod_getopt = require('posix-getopt');
-var Soaj = require('./lib/soaj');
+var Soaj = require('../lib/soaj');
 var parser, option, ip, port;
 var fs = require('fs');
 
 var ip = '127.0.0.1';
 var port = 2504;
+
+var help = false;
 
 parser = new mod_getopt.BasicParser('l:(listen)p:(port)h(help)', process.argv);
 
@@ -19,9 +23,14 @@ while ((option = parser.getopt()) !== undefined) {
             port = option.optarg;
             break;
         case 'h':
-            console.log('Help required');
+            showHelp();
+            help = true;
             break;
     }
+}
+
+if (help) {
+    process.exit(0);
 }
 
 if (parser.optind() >= process.argv.length) {
@@ -35,3 +44,15 @@ fs.readFile(process.argv[parser.optind()], 'utf-8', function(err, data) {
         console.log('Listening on ' + ip + ':' + port);
     });
 });
+
+function showHelp() {
+    console.log('Usage: soaj [OPTION...] ROUTES_FILE');
+    console.log('');
+    console.log('\t-l IP_ADDRESS, --listen=IP_ADDRESS');
+    console.log('\t\tDefine the IP address on which the application must listen to.');
+    console.log('\t\tDefault value: 127.0.0.1');
+    console.log('');
+    console.log('\t-p PORT, --port=PORT');
+    console.log('\t\tDefine the port on which the application must listen to.');
+    console.log('\t\tDefault value: 2504');
+}

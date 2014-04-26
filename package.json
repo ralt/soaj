@@ -17,5 +17,7 @@
   },
   "dependencies": {
     "posix-getopt": "~1.0.0"
-  }
+  },
+  "main": "lib/soaj",
+  "bin": "bin/soaj"
 }
