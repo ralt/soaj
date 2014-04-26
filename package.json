@@ -1,6 +1,6 @@
 {
   "name": "soaj",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "SOA in Javascript",
   "main": "index.js",
   "scripts": {
